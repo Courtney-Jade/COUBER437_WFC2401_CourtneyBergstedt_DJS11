@@ -16,4 +16,7 @@ This project is a podcast application designed to provide users with a seamless 
 - Displays user specifc details
 - Integration with social media login
 
+  ## Netlify
+  https://podcrushed-app.netlify.app/
+
 
