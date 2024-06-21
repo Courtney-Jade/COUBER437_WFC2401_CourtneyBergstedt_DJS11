@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ShowHome from './components/Home'; // Adjust paths for other components
 import Favorites from './components/Favorites';
 import Login from './components/Login';
-import ShowDetails from './components/ShowDetails';
+import ShowDetails from './components/ShowDetails'; 
 
 const App = () => {
   const [selectedPodcast, setSelectedPodcast] = useState(null);

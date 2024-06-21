@@ -91,12 +91,7 @@ const ShowDetails = ({ selectedPodcast, setSelectedPodcast, addToFavorites }) =>
         <button onClick={handleBackClick} className="back-button">&larr; Back</button>
         <h1 className="show-title">{showDetails.title}</h1>
         <img src={showDetails.image} alt={showDetails.title} className="show-image" />
-
         <p className="show-description">{showDetails.description}</p>
-
-        
-
-     
 
         {selectedSeason ? (
           <div className="selected-season-container">
@@ -107,6 +102,7 @@ const ShowDetails = ({ selectedPodcast, setSelectedPodcast, addToFavorites }) =>
               <div key={episode.id} className="episode-item">
                 <p className="episode-title">{episode.title}</p>
                 <audio
+                  key={episode.id} // Add key prop to <audio> element
                   ref={audioRef}
                   className="audio-player"
                   onTimeUpdate={handleAudioProgress}
@@ -118,11 +114,11 @@ const ShowDetails = ({ selectedPodcast, setSelectedPodcast, addToFavorites }) =>
                   <button onClick={playAudio} className="play-button">{audioPlaying ? 'Pause' : 'Play'}</button>
                   <button onClick={pauseAudio} className="stop-button">Stop</button>
                   <button
-          onClick={toggleFavorite}
-          className={`favorite-button ${selectedPodcast && selectedPodcast.id === id ? 'remove-favorite' : 'add-favorite'}`}
-        >
-          {selectedPodcast && selectedPodcast.id === id ? 'Remove from Favorites' : 'Add to Favorites'}
-        </button>
+                    onClick={toggleFavorite}
+                    className={`favorite-button ${selectedPodcast && selectedPodcast.id === id ? 'remove-favorite' : 'add-favorite'}`}
+                  >
+                    {selectedPodcast && selectedPodcast.id === id ? 'Remove from Favorites' : 'Add to Favorites'}
+                  </button>
                 </div>
               </div>
             ))}
@@ -132,7 +128,7 @@ const ShowDetails = ({ selectedPodcast, setSelectedPodcast, addToFavorites }) =>
             <h2 className="seasons-title">Seasons</h2>
             {showDetails.seasons.map(season => (
               <div
-                key={season.id}
+                key={season.id} // Add key prop to season div
                 className="season-item"
                 onClick={() => handleSeasonSelect(season)}
               >
